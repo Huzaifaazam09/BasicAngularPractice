@@ -1,0 +1,341 @@
+<h1 style="display: flex; justify-content: center;">Welcome To Angular ;) </h1>
+
+<h2>{{title}}</h2>
+
+<h3> {{data}} </h3>
+
+<h3> {{ getValue() }} </h3>
+
+<h4> {{ 5+5 }} 102030 </h4>
+
+
+<app-login></app-login>
+
+<!-- These are the Function calls -->
+<button (click) ='getName()'>Click Me</button>
+
+<button (click) ='getName2("Huzaifa","Azam")'>Click for Name</button>
+
+<!-- Below are the Events calling -->
+<br> <br>
+<input type="text" #box (keyup)="getData(box.value)" placeholder="Event Keyup">
+
+<br> <br>
+<input type="text" #box1 (keydown)="getData(box1.value)" placeholder="Event KeyDown">
+
+<br> <br>
+<input type="text" #box2 (blur)="getData(box2.value)" placeholder="Event Blur">
+
+<br> <br>
+<input type="text" #box3 (input)="getData(box3.value)" placeholder="Event Input">
+
+<br> <br>
+<h3 (mouseover)="getData('Over and Out')">Mouse Hover Here</h3>
+
+<br>
+<h3 (mouseleave)="getData('In and Out')">Mouse Hover Away</h3>
+
+<!-- Input Box Value and Displaying it on Screen -->
+<br>
+<h2>Get Value from Input Field</h2>
+<input type="text" name="name" placeholder="Enter Your Name" #blame>
+
+<button (click)="getValue2(blame.value)">Enter</button>
+<h4> Box value is: {{displayVal}} </h4> 
+
+<!-- Counter Example -->
+
+<h2>Counter Example</h2>
+<button (click)="counter('add')" >Increase</button>
+<h4>Count: {{count}} </h4>
+
+<button (click)="counter('minus')">Decrease</button>
+<br> <br>
+
+<!-- Property Binding -->
+<h2>Property Binding</h2>
+<input type="text" value= {{name}}  disabled= {{disable}}> // via interpolation 
+<br> <br>
+<input type="text" [value]="name" [disabled]="disable"> // via property binding
+<br> <br>
+
+<!-- IF ELSE Condition -->
+<h2>If-Else Condition</h2>
+<h4 *ngIf="show; then ifBlock else elseBlock"></h4>
+
+<ng-template #ifBlock>
+    <h4 style="color: turquoise;">If Condition executed</h4>
+</ng-template>
+
+<ng-template #elseBlock>
+    <h4 style="color: rgb(46, 129, 101);">Else Condition executed</h4>
+</ng-template>
+<br> 
+
+<!-- SWITCH Condition -->
+<h2>Switch Condition</h2>
+<div [ngSwitch]="color">
+    <h4 *ngSwitchCase="'red'" style="color: red;">Red Color</h4>
+    <h4 *ngSwitchCase="'orange'" style="color: orange;" >Orange Color</h4>
+    <h4 *ngSwitchCase="'blue'" style="color: blue;" >Blue Color</h4>
+    <h4 *ngSwitchCase="'purple'" style="color: purple;" >Purple Color</h4>
+    <h4 *ngSwitchDefault="" >Default Color</h4>
+</div>
+<br> 
+
+<!-- For Loop -->
+<h2>For Loop</h2>
+<h4 *ngFor="let item of users" style="color: rgb(218, 122, 32);">Array Name : {{item}} </h4> 
+<br>
+<h4 *ngFor="let item of userDetails" style="color: rgb(95, 95, 6);"> Object Property Name : {{item.name}} - {{item.email}} - {{item.phone}} </h4>
+<br>
+
+<!-- Style Binding -->
+<h2>Style Binding</h2>
+<h4 [style.color]="color" [style.backgroundColor]="bgColor" >Hey, how r u?</h4>
+<button (click)="updateColor()">Change Color</button>
+<br>
+
+<!-- Basic Form -->
+<h2>Basic Forms</h2>
+<form #basicForm="ngForm" (ngSubmit)="getData2(basicForm.value)">
+    <input type="text" ngModel name="user" placeholder="Enter User Name">
+    <br> <br>
+    <input type="text" ngModel name="email" placeholder="Enter User Email">
+    <br> <br>
+    <input type="text" ngModel name="password" placeholder="Enter User Password">
+    <br> <br>
+    <button>Register</button>
+</form>
+
+<ul>
+    <li>{{userData.user}}</li>
+    <li>{{userData.email}}</li>
+    <li>{{userData.password}}</li>
+</ul>
+<br>
+
+<!-- Toggle Elements -->
+<!-- <h2>Toggle Elements (Hide/Show)</h2>
+<h3 *ngIf="display" style="color: cornflowerblue;">Heading Tag</h3>
+<button (click)="toggle()">Toggle</button>
+<br> <br> -->
+
+<!-- Angular Material Ui -->    
+<h2 style="background-color: white; width: fit-content; padding: 5px;">Angular Material-UI</h2>
+
+<h3> -> Slider</h3>
+<mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+<br>
+
+<h3> -> Buttons</h3>
+<div>
+    <button mat-flat-button color="warn">Hello</button>
+    <button mat-flat-button color="primary">Hey</button>
+    <button mat-flat-button color="accent">Hi</button>
+    <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
+</div>
+<br>
+
+<!-- Todo List -->
+<h2>Todo List</h2>
+<input type="text" #task placeholder="Enter New Task">
+<br> <br>
+<button (click)="addTask(task.value)">Add Task</button>
+<br>
+<ul *ngFor="let item of list">
+    <li> {{item.name}} <button (click)="removeTask(item.id)" >Remove Task</button> </li>
+</ul>
+
+
+
+<br> <br> <br> <br> 
+
+<!-- 1- Passing Data from Parent to child Component -->
+<h2>1- Passing Data from Parent to child Component</h2>
+<app-child [childItem] = "childData"></app-child>
+<button (click)="updateChild()" >Update Child Component</button>
+<br> <br>
+
+<!-- 2- Passing Data from Parent to child Component Dynamically -->
+<h2>2- Passing Data from Parent to child Component Dynamically</h2>
+<ul *ngFor="let bitem of childUserDetails">
+<app-child-userdetails [childUserItem] = 'bitem'></app-child-userdetails>
+</ul>
+<br>
+
+
+<!-- Passing Data from child to parent Component  -->
+<h2>Passing Data from Child to parent Component</h2>
+<h4> {{Data2}} </h4>
+<app-child-p (updateDataEvent)="updateData($event)"></app-child-p>
+<br> <br>
+
+
+<!-- Two way Binding -->
+<h2>Two way Binding</h2>
+<input type="text" [(ngModel)]="name2"  placeholder="Write something">
+<h4>{{name2}}</h4>
+<br>
+
+<!-- Pipes in Angular -->
+<h2>Pipes in Angular</h2>
+<h4> 1- {{data3 | uppercase }} </h4>
+<h4> 2- {{data3 | slice: 2 : 8 | lowercase }} </h4>
+<h4> 3- {{today | date: 'fullDate' }} </h4>
+<h4> 4- {{ 200 | currency:'USD' }} </h4>
+<h4> 5- {{ "Hello how are you" | titlecase }} </h4>
+<br>
+
+<!-- Template Driven Form -->
+<h2>Template Driven Form</h2>
+<form #loginForm="ngForm" (ngSubmit)=userLogin(loginForm.value)>
+    <input type="text" name="name" placeholder="Enter Name" ngModel>
+    <br> <br>
+    <input type="text" name="password" placeholder="Enter Password" ngModel>
+    <br> <br>
+    <button>Login</button>
+</form>
+<br> <br>
+
+
+<!-- Reactive Form & Validations -->
+<h2>Reactive Form</h2>
+<form [formGroup]="loginForm2" (ngSubmit)="userLogin2()" >
+    <input type="text" name="user" placeholder="Enter Email"  formControlName="user" >
+    <p style="color: red;" *ngIf="user && user.invalid && user.touched">Invalid Email Address</p>
+    <br> <br>
+    <input type="text" name="password" placeholder="Enter Password" formControlName="password" >
+    <p style="color: red;" *ngIf="password && password.invalid && password.touched " >Invalid password</p>
+    <br> <br>
+    <button [disabled]="loginForm2.invalid" >Login</button>
+</form>
+<br> <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br> <br>
+<h2>Routing Links </h2>
+<a style="color: rgb(22, 101, 170); text-decoration: none;" routerLink="app-student-list">Student list Component</a> <br> 
+<a style="color: rgb(22, 101, 170); text-decoration: none;" routerLink="app-user-list">User list Component</a> <br> 
+<a style="color: rgb(22, 101, 170); text-decoration: none;" routerLink="app-country-list">Country list Component</a> <br> 
+<router-outlet></router-outlet>
+<br> <br>
+
+<!-- TEMPORARY COMMENTED BOTH CONSTRUCTOR API DATA TO CHECK CAPTCHU FROM PrimeNG -->
+<!-- <h2>API CALL in Angular</h2>
+<h3> GET Api Data</h3>
+<ul>
+    <li *ngFor="let a of datauser2">
+        <b>ID :</b> {{ a.id }} <br> 
+        <b>Name :</b> {{ a.name }} <br> 
+        <b>Email :</b> {{ a.email }} <br> 
+        <b>Body :</b> {{ a.body }}  <br>
+    </li>
+</ul>
+<br> <br>
+
+<h2>POST Api Method</h2>
+<form #userForm="ngForm" (ngSubmit)="getUserFormData(userForm.value)" >
+    <input type="text" ngModel name="name" placeholder="Enter Name"> <br> <br>
+    <input type="text" ngModel name="email" placeholder="Enter Email"> <br> <br>
+    <input type="text" ngModel name="body" placeholder="Enter Body"> <br> <br>
+    <button>Add New User</button>
+</form>
+<br> <br> -->
+
+<!-- Temporary Commentng this due to using contructor for httpClient Api purpose in app.component.ts , we cant use 2 contructor in same component -->
+<!-- 
+<h2>App component's Footer</h2>
+<ul>
+    <li *ngFor="let user of datauser1">     
+       Name: {{ user.name }}  | Age: {{ user.age }}
+    </li>
+</ul>
+<app-footer></app-footer> -->
+<br> <br>
+
+
+
+<br> <br>
+<h2 style="background-color: white; width: fit-content; padding: 5px;">PrimeNG version 13</h2>
+<h3> -> Buttons</h3>
+<button pButton type="button" label="Emails" badge="8"></button>
+<br> <br>
+<span class="p-buttonset">
+    <button pButton type="button" label="Save" icon="pi pi-check"></button>
+    <button pButton type="button" label="Delete" icon="pi pi-trash"></button>
+    <button pButton type="button" label="Cancel" icon="pi pi-times"></button>
+</span>
+<br> <br>
+<button pButton type="button" class="p-button-raised p-button-rounded">Click</button>
+
+
+<!-- Temporary commenting this constructor method to use NgStyle contructor down below   -->
+<!-- <br> <br>
+<h3> -> Angular PrimeNG Captcha Component</h3> 
+<div class="card"> 
+    <p-toast></p-toast> 
+    <p-captcha siteKey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" 
+               (onResponse)="showResponse($event)" 
+               initCallback="onloadCallback"> 
+    </p-captcha> 
+</div>
+
+<br> <br>
+<h3> -> Accordian</h3>
+<div class="py-3">
+    <p-button [icon]="activeState[0] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(0)" styleClass="p-button-text" label="One" ></p-button>
+    <p-button [icon]="activeState[1] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(1)" styleClass="p-button-text ml-2" label="Second" ></p-button>
+    <p-button [icon]="activeState[2] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(2)" styleClass="p-button-text ml-2" label="Third"></p-button>
+</div>
+<br>
+<p-accordion>
+    <p-accordionTab header="Header I" [(selected)]="activeState[0]">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            ullamco laboris nisi ut aliquip ex ea commodo consequat..</p>
+    </p-accordionTab>
+    <p-accordionTab header="Header II" [(selected)]="activeState[1]">
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+            architecto beatae vitae dicta sunt explicabo.</p>
+    </p-accordionTab>
+    <p-accordionTab header="Header III" [(selected)]="activeState[2]">
+        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+            cupiditate non provident, similique sunt in culpa.</p>
+    </p-accordionTab>
+</p-accordion>
+<br> <br> -->
+
+<!-- we are dynamically styling the elements here on the basics of Random Math Number with the help of ngStyle -->
+<br> <br>
+<h2> NgStyles </h2>
+<p [ngStyle]="{backgroundColor: getColor()}">  {{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}</p>
+
+
+
+
+
+
+<!-- I have comment out these component here to represent them in Routing Links Above -->
+<!-- This component is made with inline-Template -->
+<!-- <app-student-list></app-student-list> -->
+
+<!-- This component is made with inline-Style -->
+<!-- <app-user-list></app-user-list> -->
+
+<!-- This component is made with both inline-Style & inline-Template -->
+<!-- <app-country-list></app-country-list>  -->
+
+<!-- <br>
+<app-header></app-header> -->
+

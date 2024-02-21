@@ -1,0 +1,23 @@
+
+/* PrimeNG url imports for css */
+@import url("../node_modules/primeicons/primeicons.css");
+@import url("../node_modules/primeng/resources/themes/lara-light-blue/theme.css");
+@import url("../node_modules/primeng/resources/primeng.min.css");
+
+html, body { height: 100%; }
+body { margin: 10px; font-family: Roboto, "Times New Roman", Times, serif; background-color: rgb(173, 229, 247); }
+
+input{
+    padding: 8px ;
+}
+button{
+    padding: 8px;
+    margin: 0 2px;
+    background-color:black;
+    color: #fff;
+    border: 2px solid black;
+}
+
+h2{
+    background-color: white; width: fit-content; padding: 5px;
+}

@@ -1,0 +1,37 @@
+[
+    {
+      "postId": 1,
+      "id": 1,
+      "name": "Huzaifa azam",
+      "email": "Eliseo@gardner.biz",
+      "body": "laudantium enim quasi est quidem magnam reiciendis et nam sapiente accusantium"
+    },
+    {
+      "postId": 1,
+      "id": 2,
+      "name": "Ali",
+      "email": "Jayne_Kuhic@sydney.com",
+      "body": "est  error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et"
+    },
+    {
+      "postId": 1,
+      "id": 3,
+      "name": "Usman",
+      "email": "Nikita@garfield.biz",
+      "body": "occaecati quia accusamus maiores nam est\ncum ptates excepturi deleniti ratione"
+    },
+    {
+      "postId": 1,
+      "id": 4,
+      "name": "Tayyab",
+      "email": "Lew@alysha.tv",
+      "body": "non et atque\noccaecati deserunt quas accusantium "
+    },
+    {
+      "postId": 1,
+      "id": 5,
+      "name": "Osama",
+      "email": "Hayden@althea.biz",
+      "body": "harum non quasi et ratione\ntempore iure ex voluptates in ratione"
+    }
+  ]
